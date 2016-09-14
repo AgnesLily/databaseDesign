@@ -3,18 +3,76 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link href="assets/css/index.css" />
+		<link rel="stylesheet" href="assets/css/login.css" />
 		<script type="text/javascript" src="assets/js/jquery.js"></script>
-		<script type="text/javascript" src="assets/js/index.js"></script>		
+		<script type="text/javascript" src="assets/js/dataJS/index.js"></script>
+		
+		<style>
+			body{height:100%;background:#16a085;overflow:hidden;}
+			canvas{z-index:-1;position:absolute;}
+		</style>
+		<!--<script src="assets/js/jquery.js"></script>-->
+		<script src="assets/js/verificationNumbers.js" tppabs="assets/js/verificationNumbers.js"></script>
+		<script src="assets/js/Particleground.js" tppabs="assets/js/Particleground.js"></script>
+		<script>
+			$(document).ready(function() {
+			  //粒子背景特效
+			  $('body').particleground({
+			    dotColor: '#5cbdaa',
+			    lineColor: '#5cbdaa'
+			  });
+			  //验证码
+			  createCode();
+			  //测试提交，对接程序删除即可
+			  $(".submit_btn").click(function(){
+				  location.href="javascrpt:;"/*tpa=http://***index.html*/;
+				  });
+			});
+		</script>
 	</head>
 	<body>
-		<input type="text" placeholder="请输入您的账号" id="account"/>
+		<!--<input type="text" placeholder="请输入您的账号" id="account"/>
 		<input type="text" placeholder="请输入您的密码" id="password"/>
 		<div value="登录" style="width: 80px; height: 30px" id="login_btn" onclick="loginIn()">登录</div>
 		
 		<div>注册</div>
 		<input type="text" placeholder="请输入您的账号" id="reg_account"/>
 		<input type="text" placeholder="请输入您的密码" id="reg_password"/>
-		<div value="注册" style="width: 80px; height: 30px" id="reg_btn" onclick="Register()">注册</div>
+		<div value="注册" style="width: 80px; height: 30px" id="reg_btn" onclick="Register()">注册</div>-->
+		
+		<dl class="admin_login login">
+		 <dt>
+		  <strong>教室信息展示平台</strong>
+		  <em>Please Login</em>
+		 </dt>
+		 <dd class="user_icon">
+		  <input type="text" placeholder="请输入您的账号" id="account" class="login_txtbx"/>
+		 </dd>
+		 <dd class="pwd_icon">
+		  <input type="password" placeholder="请输入您的密码" id="password" class="login_txtbx"/>
+		 </dd>		 
+		 <dd class="option_btn">
+		  <input type="button" id="login_btn" onclick="loginIn()" value="立即登陆" class="submit_btn"/>
+		 </dd>
+		 <dd>
+		 	<p><a href="#" id="go_reg" onclick="toggle()">还没账号，赶快注册</a></p>
+		 </dd>
+		</dl>
+		<dl class="admin_login reg" style="display: none;">
+		 <dt>
+		  <strong>赶快注册吧</strong>
+		  <em>Please Register</em>
+		 </dt>
+		 <dd class="user_icon">
+		  <input type="text"  placeholder="请输入您的账号" id="reg_account" class="login_txtbx"/>
+		 </dd>
+		 <dd class="pwd_icon">
+		  <input type="password" placeholder="请输入您的密码" id="reg_password" class="login_txtbx"/>
+		 </dd>		 
+		 <dd class="option_btn">
+		  <input type="button" id="reg_btn" onclick="Register()" value="立即注册" class="submit_btn"/>
+		 </dd>
+		 <dd>		 
+		</dl>
 	</body>
 </html>

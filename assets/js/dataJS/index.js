@@ -1,3 +1,7 @@
+function toggle() {
+	$(".login").hide();
+	$(".reg").show();
+}
 function loginIn(){
 	console.log("请求");
 	var _data = {
@@ -15,6 +19,7 @@ function loginIn(){
 			if(data.statue == 1){
 				console.log(data);
 				alert("登录成功!");
+				window.location = "home.html";
 			}
 			else if(data.statue == -1) {
 				alert("账号或密码错误！");
@@ -42,6 +47,8 @@ function Register() {
 			if(data.statue == 1){
 				console.log(data);
 				alert("注册成功!请登录");
+				$(".reg").hide();
+				$(".login").show();
 			}
 			else if(data.statue == -1) {
 				alert("该用户已存在！");

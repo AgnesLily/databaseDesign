@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="assets/js/echarts.js"></script>
+	</head>
+	<body>
+		<div id="con" style="width: 1000px; height: 1000px;">
+			
+		</div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('con'));
+
+	        // 指定图表的配置项和数据
+	        var hours = ['103', '105', '107', '108', '203', '205', '207',
+       					 '208', '303', '305','307','308', '403', '405', '407', '408'];//16
+			var days = ['08:00', '09:00', '10:00',
+				        '11:00', '12:00', '13:00', '14:00',
+				        '15:00', '16:00', '17:00', '18:00',
+				        '19:00', '20:00', '21:00','22:00'];//15
+			
+			var item = [];
+			var data = [];			
+			var index = 0;
+			consoleData();
+			function consoleData() {				    
+				for(var i = 0; i < 15; i++){
+					item[i] = new Array();
+					for(var j = 0;j < 16;j++){
+						(function(){
+					       var z = parseInt(3*Math.random());
+							item[i][j] = new Array();
+							item[i][j] = [i,j,z];
+							if(index < 240){
+								data[index] = new Array();
+								data[index] = item[i][j];
+								index++;
+							}
+					    })();							
+					}	
+				}
+			}
+			
+			data = data.map(function (item) {
+			    return [item[1], item[0], item[2] || '-'];
+			});
+			console.log(data);
+			option = {
+			    tooltip: {
+			        position: 'top'
+			    },
+			    animation: false,
+			    grid: {
+			        height: '50%',
+			        y: '10%'
+			    },
+			    xAxis: {
+			        type: 'category',
+			        data: hours,
+			        splitArea: {
+			            show: true
+			        },
+			        nameLocation:'start',
+			        gridIndex: 0,
+			        axisLabel : {
+		                show:true,
+		                interval: 0//,    // {number}
+		                //rotate: 45,
+		               // margin: 8
+		               
+	            	}
+			    },
+			    yAxis: {
+			        type: 'category',
+			        data: days,
+			        splitArea: {
+			            show: true
+			        }
+			    },
+			    visualMap: {
+			        min: 0,
+			        max: 3,
+			        calculable: true,
+			        orient: 'horizontal',
+			        left: 'center',
+			        bottom: '15%'
+			    },
+			    series: [{
+			        name: 'Punch Card',
+			        type: 'heatmap',
+			        data: data,
+			        label: {
+			            normal: {
+			                show: true
+			            }
+			        },
+			        itemStyle: {
+			            emphasis: {
+			                shadowBlur: 10,
+			                shadowColor: 'rgba(0, 0, 0, 0.5)'
+			            }
+			        }
+			    }],
+			     dataZoom: [
+			        {
+			            show: true,
+			            realtime: true,
+			            start: 0,
+			            end: 40
+			        }
+			    ]
+			};
+	
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+		</script>
+	</body>
+</html>
