@@ -14,7 +14,7 @@
 	<link href="assets/css/freelancer.css" rel="stylesheet">
 	
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
+	<link href="assets/css/home.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.css"/>
 	<!--<link href="http://fonts.useso.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
 	<!--<link href="http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
@@ -27,7 +27,7 @@
 <![endif]-->
 	<script type="text/javascript" src="assets/js/echarts.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.js"></script>
-
+	
 
 	
 </head>
@@ -97,9 +97,10 @@
 		</div>
 		<div class="row">
 			<select class="area-option">
+				<option value = "5">教学楼五区</option>
 				<option value = "1">教学楼一区</option>
 				<option value = "4">教学楼四区</option>
-				<option value = "5">教学楼五区</option>
+				
 			</select>
 			<div id="con" style="width: 100%; height: 500px;margin: 0 auto;">
 				
@@ -157,6 +158,20 @@
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<select class="area_select" style="color: #000;">
+								<option selected="selected">请选择教学区</option>
+								<option value="5">五区</option>
+								<option value="4">四区</option>
+								<option value="1">一区</option>
+							</select>
+							<select class="room_select"  style="color: #000;">
+								<option selected="selected">请选择教室</option>
+							</select>							
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<label>Comments</label>
 							<textarea rows="5" class="form-control" placeholder="Comments" id="Comments" required data-validation-required-message="Please enter a message."></textarea>
 							<p class="help-block text-danger"></p>
@@ -165,26 +180,16 @@
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<label>Phone Number</label>
-							<textarea rows="5" type="tel" class="form-control" placeholder="Comments" id="Commentsddddd" required data-validation-required-message="Please enter a message."></textarea>
+							<input type="text" class="form-control" placeholder="Phone Number" id="number" required data-validation-required-message="Please enter your phone number.">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
-					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<select class="area_select">
-								<option>五区</option>
-								<option>四区</option>
-								<option>一区</option>
-							</select>
-							<textarea rows="5" type="tel" class="form-control" placeholder="Comments" id="Commentsddddd" required data-validation-required-message="Please enter a message."></textarea>
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
+					
 					<br>
 					<div id="success"></div>
 					<div class="row">
 						<div class="form-group col-xs-12">
-							<button type="submit" class="btn btn-success btn-lg">Send</button>
+							<button type="button" id="apply_btn" class="btn btn-success btn-lg">Send</button>
 						</div>
 					</div>
 				</form>
@@ -209,37 +214,42 @@
 				<form name="sentMessage" id="contactForm" novalidate>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Date</label>
-							<input type="text" class="form-control" placeholder="Date" id="dateselectsss" required data-validation-required-message="Please enter your name.">
+							<select class="reply-area">
+								<option selected="selected">选择教学区</option>
+								<option>五区</option>
+								<option>四区</option>
+								<option>一区</option>
+							</select>
+							<select class="reply-room">
+								<option selected="selected">选择教室</option>
+							</select>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>简述</label>
+							<input type="text" class="form-control" id="simple-reply"placeholder="simple des">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Time Start</label>
-							<input type="email" class="form-control" placeholder="Time Start" id="time_startssss" required data-validation-required-message="Please enter your email address.">
+							<label>详述</label>
+							<textarea rows="5" class="form-control" placeholder="complex des" id="complex-reply"></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Time End</label>
-							<input type="tel" class="form-control" placeholder="Time End" id="Time Endsss" required data-validation-required-message="Please enter your phone number.">
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label>Comments</label>
-							<textarea rows="5" class="form-control" placeholder="Comments" id="Commentssss" required data-validation-required-message="Please enter a message."></textarea>
+							<label>上传图片</label>
+							<input type="file" id="pic-upload"/>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<br>
-					<div id="success"></div>
 					<div class="row">
 						<div class="form-group col-xs-12">
-							<button type="submit" class="btn btn-success btn-lg">Send</button>
+							<button type="button" id="reply_btn" class="btn btn-success btn-lg">Connect</button>
 						</div>
 					</div>
 				</form>
@@ -255,7 +265,7 @@
 			<div class="row">
 				<div class="footer-col col-md-4">
 					<h3>Location</h3>
-					<p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+					<p>SDU IN SHANDONG</p>
 				</div>
 				<div class="footer-col col-md-4">
 					<h3>Around the Web</h3>
@@ -278,8 +288,8 @@
 					</ul>
 				</div>
 				<div class="footer-col col-md-4">
-					<h3>About Freelancer</h3>
-					<p>Freelance is a free to use, open source Bootstrap theme created Start Bootstrap.</p>
+					<h3>About Classroom</h3>
+					<p>A platform for students to check information,apply classroom,reply classroom.</p>
 				</div>
 			</div>
 		</div>
@@ -288,7 +298,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+					Copyright &copy; 2016.09.Lily
 				</div>
 			</div>
 		</div>
@@ -377,8 +387,8 @@
 	$('#time_start').datetimepicker({
 		datepicker:false,
 		format:'H:i',
-	//	allowTimes:['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00',
-	//				'16:00','17:00','18:00','19:00','20:00','21:00'],
+		allowTimes:['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00',
+					'16:00','17:00','18:00','19:00','20:00','21:00'],
 		step:60
 	});
 	
@@ -386,8 +396,8 @@
 	$('#time_end').datetimepicker({
 		datepicker:false,
 		format:'H:i',
-	//	allowTimes:['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00',
-	//				'16:00','17:00','18:00','19:00','20:00','21:00'],
+		allowTimes:['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00',
+					'16:00','17:00','18:00','19:00','20:00','21:00'],
 		step:60
 	});
 
@@ -396,6 +406,7 @@
 
 <script type="text/javascript" src="assets/js/dataJS/initCell.js"></script>
 <script type="text/javascript" src="assets/js/dataJS/apply.js"></script>
+<script type="text/javascript" src="assets/js/dataJS/reply.js"></script>
 </body>
 
 </html>

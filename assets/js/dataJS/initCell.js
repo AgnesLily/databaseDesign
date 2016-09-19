@@ -40,7 +40,7 @@ function handleHours(data) {
 function initData() {
 	var _data = {
 		'region':region,
-		'date':"2016-09-01"
+		'date':"2016-09-20"
 	};
 	
 	$.ajax({

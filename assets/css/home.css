@@ -1,0 +1,19 @@
+.area-option {
+	display: block;
+	width: 120px;
+	height: 40px;
+	margin: 0 auto;
+}
+.area_select, .room_select,.reply-area,.reply-room {
+	display:inline-block;
+	width: 120px;
+	height: 40px;
+	margin-top: 20px;
+	margin-left: 30px;
+	/*margin: 0 auto;*/
+}
+#apply_btn,#reply_btn {
+	margin: 0 auto;
+    display: block;
+    border:2px solid #fff;
+}

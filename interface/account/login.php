@@ -17,7 +17,7 @@ if(isset($_POST['account']) && $_POST['account']
 	$password = check_textInput($_POST['password']);
 	$password = md5($password);
 	
-	$sql = "SELECT * FROM student WHERE sno='{$account}' && password='{$password}'";
+	$sql = "SELECT * FROM student WHERE sno='{$account}' AND password='{$password}'";
 	$res = $con->get_result($sql);
 	if($row = mysqli_fetch_assoc($res)){
 		$response['statue'] = 1;
